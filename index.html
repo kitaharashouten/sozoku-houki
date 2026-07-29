@@ -34,97 +34,458 @@
     padding:28px 16px 60px;
     line-height:1.7;
   }
-  .stage{width:100%;max-width:460px;}
-  .eyebrow{display:flex;align-items:center;gap:10px;margin-bottom:14px;color:var(--ink-mid);font-size:12.5px;letter-spacing:.14em;}
+  .stage{
+    width:100%;
+    max-width:460px;
+  }
+  .eyebrow{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:14px;
+    color:var(--ink-mid);
+    font-size:12.5px;
+    letter-spacing:.14em;
+  }
   .eyebrow .rule{flex:1;height:1px;background:var(--line);}
-  header.masthead{text-align:center;margin-bottom:22px;}
-  header.masthead h1{font-family:'Shippori Mincho B1', serif;font-weight:800;font-size:26px;margin:0 0 6px;letter-spacing:.03em;}
-  header.masthead p{margin:0;color:var(--ink-mid);font-size:13.5px;}
-  .progress{display:flex;gap:6px;justify-content:center;margin:18px 0 26px;}
-  .progress .dot{width:8px;height:8px;border-radius:50%;background:var(--line);transition:background .25s ease, transform .25s ease;}
+  header.masthead{
+    text-align:center;
+    margin-bottom:22px;
+  }
+  header.masthead h1{
+    font-family:'Shippori Mincho B1', serif;
+    font-weight:800;
+    font-size:26px;
+    margin:0 0 6px;
+    letter-spacing:.03em;
+  }
+  header.masthead p{
+    margin:0;
+    color:var(--ink-mid);
+    font-size:13.5px;
+  }
+  .progress{
+    display:flex;
+    gap:6px;
+    justify-content:center;
+    margin:18px 0 26px;
+  }
+  .progress .dot{
+    width:8px;height:8px;border-radius:50%;
+    background:var(--line);
+    transition:background .25s ease, transform .25s ease;
+  }
   .progress .dot.active{background:var(--accent);transform:scale(1.25);}
   .progress .dot.done{background:var(--ink-mid);}
-  .card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:34px 26px 30px;box-shadow:0 1px 2px rgba(0,0,0,0.02), 0 14px 34px -20px rgba(20,18,14,0.25);animation:rise .38s ease;}
-  @keyframes rise{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
-  .qnum{font-family:'Shippori Mincho B1', serif;font-size:13px;color:var(--ink-faint);margin-bottom:10px;letter-spacing:.08em;}
-  .question{font-family:'Shippori Mincho B1', serif;font-size:20px;font-weight:700;line-height:1.65;margin:0 0 8px;}
-  .subtext{color:var(--ink-mid);font-size:13.5px;margin:0 0 26px;}
-  .choices{display:flex;flex-direction:column;gap:12px;}
-  .choice-btn{appearance:none;border:1.5px solid var(--line);background:#fff;color:var(--ink);font-family:'Zen Kaku Gothic New', sans-serif;font-size:16px;font-weight:500;padding:18px 20px;border-radius:12px;text-align:left;display:flex;align-items:center;justify-content:space-between;cursor:pointer;transition:border-color .15s ease, background .15s ease, transform .1s ease;}
+
+  .card{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:18px;
+    padding:34px 26px 30px;
+    box-shadow:0 1px 2px rgba(0,0,0,0.02), 0 14px 34px -20px rgba(20,18,14,0.25);
+    animation:rise .38s ease;
+  }
+  @keyframes rise{
+    from{opacity:0; transform:translateY(10px);}
+    to{opacity:1; transform:translateY(0);}
+  }
+  .qnum{
+    font-family:'Shippori Mincho B1', serif;
+    font-size:13px;
+    color:var(--ink-faint);
+    margin-bottom:10px;
+    letter-spacing:.08em;
+  }
+  .question{
+    font-family:'Shippori Mincho B1', serif;
+    font-size:20px;
+    font-weight:700;
+    line-height:1.65;
+    margin:0 0 8px;
+  }
+  .subtext{
+    color:var(--ink-mid);
+    font-size:13.5px;
+    margin:0 0 26px;
+  }
+  .choices{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+  }
+  .choice-btn{
+    appearance:none;
+    border:1.5px solid var(--line);
+    background:#fff;
+    color:var(--ink);
+    font-family:'Zen Kaku Gothic New', sans-serif;
+    font-size:16px;
+    font-weight:500;
+    padding:18px 20px;
+    border-radius:12px;
+    text-align:left;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    cursor:pointer;
+    transition:border-color .15s ease, background .15s ease, transform .1s ease;
+  }
   .choice-btn:active{transform:scale(0.98);}
   .choice-btn:hover{border-color:var(--ink-mid);}
-  .choice-btn .mark{width:26px;height:26px;border-radius:50%;border:1.5px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:13px;color:var(--ink-faint);flex-shrink:0;margin-left:14px;}
-  .start-btn{width:100%;background:var(--accent);color:#fff;border:none;padding:18px 20px;border-radius:12px;font-family:'Zen Kaku Gothic New', sans-serif;font-size:16px;font-weight:700;cursor:pointer;letter-spacing:.04em;}
+  .choice-btn .mark{
+    width:26px;height:26px;
+    border-radius:50%;
+    border:1.5px solid var(--line);
+    display:flex;align-items:center;justify-content:center;
+    font-size:13px;
+    color:var(--ink-faint);
+    flex-shrink:0;
+    margin-left:14px;
+  }
+  .choice-yes .mark{content:'';}
+
+  .start-btn{
+    width:100%;
+    background:var(--accent);
+    color:#fff;
+    border:none;
+    padding:18px 20px;
+    border-radius:12px;
+    font-family:'Zen Kaku Gothic New', sans-serif;
+    font-size:16px;
+    font-weight:700;
+    cursor:pointer;
+    letter-spacing:.04em;
+  }
   .start-btn:active{transform:scale(0.98);}
-  .intro-list{margin:0 0 26px;padding:0;list-style:none;color:var(--ink-mid);font-size:14px;}
-  .intro-list li{display:flex;gap:10px;padding:9px 0;border-bottom:1px dashed var(--line);}
+
+  .intro-list{
+    margin:0 0 26px;
+    padding:0;
+    list-style:none;
+    color:var(--ink-mid);
+    font-size:14px;
+  }
+  .intro-list li{
+    display:flex;
+    gap:10px;
+    padding:9px 0;
+    border-bottom:1px dashed var(--line);
+  }
   .intro-list li:last-child{border-bottom:none;}
-  .intro-list .num{font-family:'Shippori Mincho B1', serif;color:var(--ink-faint);font-size:13px;}
-  .flow-heading{font-family:'Zen Kaku Gothic New', sans-serif;font-weight:700;font-size:13.5px;color:var(--ink);margin:0 0 16px;}
-  .goal-heading{font-family:'Zen Kaku Gothic New', sans-serif;font-weight:700;font-size:13.5px;color:var(--ink);margin:0 0 12px;}
-  .goal-points{display:flex;flex-direction:column;gap:12px;margin-bottom:28px;}
-  .goal-point{display:flex;gap:14px;align-items:flex-start;border:1.5px solid var(--line);border-radius:14px;padding:16px 16px;background:#fff;}
-  .goal-num{width:30px;height:30px;border-radius:50%;background:var(--ink);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Zen Kaku Gothic New', sans-serif;font-weight:700;font-size:14px;flex-shrink:0;}
-  .goal-title{font-size:14.5px;font-weight:700;color:var(--ink);margin:0 0 4px;}
-  .goal-desc{font-size:12.5px;color:var(--ink-mid);margin:0;line-height:1.65;}
-  .flow-wrap{position:relative;margin-bottom:26px;}
-  .flow-line{position:absolute;left:15px;top:16px;bottom:16px;width:0;border-left:2px dashed var(--line);z-index:0;}
-  .flow-step{position:relative;z-index:1;display:flex;gap:14px;align-items:flex-start;margin-bottom:14px;}
+  .intro-list .num{
+    font-family:'Shippori Mincho B1', serif;
+    color:var(--ink-faint);
+    font-size:13px;
+  }
+
+  .flow-heading{
+    font-family:'Zen Kaku Gothic New', sans-serif;
+    font-weight:700;
+    font-size:13.5px;
+    color:var(--ink);
+    margin:0 0 16px;
+  }
+
+  .goal-heading{
+    font-family:'Zen Kaku Gothic New', sans-serif;
+    font-weight:700;
+    font-size:13.5px;
+    color:var(--ink);
+    margin:0 0 12px;
+  }
+  .goal-points{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    margin-bottom:28px;
+  }
+  .goal-point{
+    display:flex;
+    gap:14px;
+    align-items:flex-start;
+    border:1.5px solid var(--line);
+    border-radius:14px;
+    padding:16px 16px;
+    background:#fff;
+  }
+  .goal-num{
+    width:30px;height:30px;
+    border-radius:50%;
+    background:var(--ink);
+    color:#fff;
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Zen Kaku Gothic New', sans-serif;
+    font-weight:700;
+    font-size:14px;
+    flex-shrink:0;
+  }
+  .goal-title{
+    font-size:14.5px;
+    font-weight:700;
+    color:var(--ink);
+    margin:0 0 4px;
+  }
+  .goal-desc{
+    font-size:12.5px;
+    color:var(--ink-mid);
+    margin:0;
+    line-height:1.65;
+  }
+  .flow-wrap{
+    position:relative;
+    margin-bottom:26px;
+  }
+  .flow-line{
+    position:absolute;
+    left:15px;
+    top:16px;
+    bottom:16px;
+    width:0;
+    border-left:2px dashed var(--line);
+    z-index:0;
+  }
+  .flow-step{
+    position:relative;
+    z-index:1;
+    display:flex;
+    gap:14px;
+    align-items:flex-start;
+    margin-bottom:14px;
+  }
   .flow-step:last-child{margin-bottom:0;}
-  .flow-num{width:32px;height:32px;border-radius:50%;background:var(--ink);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Zen Kaku Gothic New', sans-serif;font-weight:700;font-size:13.5px;flex-shrink:0;}
-  .flow-card{background:var(--accent-soft);border-radius:12px;padding:11px 15px;font-size:13px;color:var(--ink);flex:1;margin-top:2px;}
-  .result-head{text-align:center;margin-bottom:22px;}
-  .stamp-wrap{display:flex;justify-content:center;margin-bottom:14px;}
-  .stamp{width:64px;height:64px;border-radius:50%;border:2.5px solid var(--stamp);display:flex;align-items:center;justify-content:center;transform:rotate(-6deg);font-family:'Shippori Mincho B1', serif;font-weight:800;font-size:15px;color:var(--stamp);letter-spacing:.05em;}
-  .result-head h2{font-family:'Shippori Mincho B1', serif;font-size:19px;margin:0 0 6px;}
-  .result-head p{color:var(--ink-mid);font-size:13.5px;margin:0;}
-  .matrix{border-top:1px solid var(--line);margin-bottom:22px;}
-  .row{display:flex;align-items:flex-start;gap:14px;padding:15px 2px;border-bottom:1px solid var(--line);}
-  .row .flag{width:28px;height:28px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:'Shippori Mincho B1', serif;font-size:14px;font-weight:700;margin-top:2px;}
-  .row.need .flag{border:2px solid var(--stamp);color:var(--stamp);}
-  .row.skip .flag{color:var(--ink-faint);border:1.5px dashed var(--line);}
-  .row .text .title{font-size:14.5px;font-weight:700;margin:0 0 2px;}
-  .row.skip .text .title{color:var(--ink-faint);font-weight:500;}
-  .row .text .note{font-size:12.5px;color:var(--ink-mid);margin:0;}
+  .flow-num{
+    width:32px;height:32px;
+    border-radius:50%;
+    background:var(--ink);
+    color:#fff;
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Zen Kaku Gothic New', sans-serif;
+    font-weight:700;
+    font-size:13.5px;
+    flex-shrink:0;
+  }
+  .flow-card{
+    background:var(--accent-soft);
+    border-radius:12px;
+    padding:11px 15px;
+    font-size:13px;
+    color:var(--ink);
+    flex:1;
+    margin-top:2px;
+  }
+
+  /* result screen */
+  .result-head{
+    text-align:center;
+    margin-bottom:22px;
+  }
+  .stamp-wrap{
+    display:flex;justify-content:center;margin-bottom:14px;
+  }
+  .stamp{
+    width:64px;height:64px;
+    border-radius:50%;
+    border:2.5px solid var(--stamp);
+    display:flex;align-items:center;justify-content:center;
+    transform:rotate(-6deg);
+    font-family:'Shippori Mincho B1', serif;
+    font-weight:800;
+    font-size:15px;
+    color:var(--stamp);
+    letter-spacing:.05em;
+  }
+  .result-head h2{
+    font-family:'Shippori Mincho B1', serif;
+    font-size:19px;
+    margin:0 0 6px;
+  }
+  .result-head p{
+    color:var(--ink-mid);
+    font-size:13.5px;
+    margin:0;
+  }
+  .matrix{
+    border-top:1px solid var(--line);
+    margin-bottom:22px;
+  }
+  .row{
+    display:flex;
+    align-items:flex-start;
+    gap:14px;
+    padding:15px 2px;
+    border-bottom:1px solid var(--line);
+  }
+  .row .flag{
+    width:28px;height:28px;
+    border-radius:50%;
+    flex-shrink:0;
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Shippori Mincho B1', serif;
+    font-size:14px;
+    font-weight:700;
+    margin-top:2px;
+  }
+  .row.need .flag{
+    border:2px solid var(--stamp);
+    color:var(--stamp);
+  }
+  .row.skip .flag{
+    color:var(--ink-faint);
+    border:1.5px dashed var(--line);
+  }
+  .row .text .title{
+    font-size:14.5px;
+    font-weight:700;
+    margin:0 0 2px;
+  }
+  .row.skip .text .title{color:var(--ink-faint); font-weight:500;}
+  .row .text .note{
+    font-size:12.5px;
+    color:var(--ink-mid);
+    margin:0;
+  }
   .row.skip .text .note{color:var(--ink-faint);}
-  .row .text .note a{color:var(--accent);text-decoration:underline;font-weight:700;}
-  .row.pending .flag{border:1.5px dashed var(--ink-mid);color:var(--ink-mid);}
+  .row .text .note a{color:var(--accent); text-decoration:underline; font-weight:700;}
+  .row.pending .flag{
+    border:1.5px dashed var(--ink-mid);
+    color:var(--ink-mid);
+  }
   .row.pending .text .title{color:var(--ink-mid);}
-  .row.pending .text .note{color:var(--ink-faint);font-style:italic;}
-  .info-box{background:var(--accent-soft);border-radius:14px;padding:18px 18px;font-size:13px;color:var(--ink-mid);margin-bottom:14px;}
-  .info-box h3{font-family:'Shippori Mincho B1', serif;font-size:14px;color:var(--ink);margin:0 0 8px;}
+  .row.pending .text .note{color:var(--ink-faint); font-style:italic;}
+
+  .info-box{
+    background:var(--accent-soft);
+    border-radius:14px;
+    padding:18px 18px;
+    font-size:13px;
+    color:var(--ink-mid);
+    margin-bottom:14px;
+  }
+  .info-box h3{
+    font-family:'Shippori Mincho B1', serif;
+    font-size:14px;
+    color:var(--ink);
+    margin:0 0 8px;
+  }
   .info-box p{margin:0 0 6px;}
   .info-box p:last-child{margin-bottom:0;}
-  .info-box.highlight{background:var(--ink);color:#fff;border:1px solid var(--ink);}
-  .info-box.highlight h3{font-family:'Zen Kaku Gothic New', sans-serif;color:#fff;font-size:15px;}
+  .info-box.highlight{
+    background:var(--ink);
+    color:#fff;
+    border:1px solid var(--ink);
+  }
+  .info-box.highlight h3{
+    font-family:'Zen Kaku Gothic New', sans-serif;
+    color:#fff;
+    font-size:15px;
+  }
   .info-box.highlight p{color:#efeeE8;}
-  .info-box.highlight .callout{background:rgba(255,255,255,0.14);color:#fff;}
-  .retry{text-align:center;margin-top:22px;}
-  .retry button{background:none;border:1px solid var(--line);color:var(--ink-mid);padding:10px 18px;border-radius:999px;font-size:13px;cursor:pointer;font-family:'Zen Kaku Gothic New', sans-serif;}
-  .more-info{margin-bottom:14px;}
-  .more-info summary{display:flex;align-items:center;justify-content:space-between;cursor:pointer;list-style:none;padding:16px 18px;border:1px solid var(--line);border-radius:14px;font-size:14px;font-weight:700;font-family:'Zen Kaku Gothic New', sans-serif;color:var(--ink);background:#fff;}
+  .info-box.highlight .callout{
+    background:rgba(255,255,255,0.14);
+    color:#fff;
+  }
+
+  .retry{
+    text-align:center;
+    margin-top:22px;
+  }
+  .retry button{
+    background:none;
+    border:1px solid var(--line);
+    color:var(--ink-mid);
+    padding:10px 18px;
+    border-radius:999px;
+    font-size:13px;
+    cursor:pointer;
+    font-family:'Zen Kaku Gothic New', sans-serif;
+  }
+
+  .more-info{
+    margin-bottom:14px;
+  }
+  .more-info summary{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    cursor:pointer;
+    list-style:none;
+    padding:16px 18px;
+    border:1px solid var(--line);
+    border-radius:14px;
+    font-size:14px;
+    font-weight:700;
+    font-family:'Zen Kaku Gothic New', sans-serif;
+    color:var(--ink);
+    background:#fff;
+  }
   .more-info summary::-webkit-details-marker{display:none;}
-  .more-info summary::after{content:'＋';color:var(--ink-faint);font-family:'Zen Kaku Gothic New', sans-serif;font-weight:400;font-size:16px;}
+  .more-info summary::after{
+    content:'＋';
+    color:var(--ink-faint);
+    font-family:'Zen Kaku Gothic New', sans-serif;
+    font-weight:400;
+    font-size:16px;
+  }
   .more-info[open] summary::after{content:'－';}
-  .more-info[open] summary{border-bottom-left-radius:0;border-bottom-right-radius:0;border-bottom:none;}
+  .more-info[open] summary{
+    border-bottom-left-radius:0;
+    border-bottom-right-radius:0;
+    border-bottom:none;
+  }
   .more-info + .more-info{margin-top:10px;}
-  .more-info-body{border:1px solid var(--line);border-top:none;border-bottom-left-radius:14px;border-bottom-right-radius:14px;padding:6px 18px 18px;font-size:13px;color:var(--ink-mid);}
+  .more-info-body{
+    border:1px solid var(--line);
+    border-top:none;
+    border-bottom-left-radius:14px;
+    border-bottom-right-radius:14px;
+    padding:6px 18px 18px;
+    font-size:13px;
+    color:var(--ink-mid);
+  }
   .more-info-body p{margin:10px 0 0;}
-  .more-info-body .callout{background:var(--accent-soft);border-radius:10px;padding:12px 14px;margin-top:12px;font-size:12.5px;color:var(--ink);}
-  .more-info-body ul{margin:10px 0 0;padding-left:18px;}
+  .more-info-body .callout{
+    background:var(--accent-soft);
+    border-radius:10px;
+    padding:12px 14px;
+    margin-top:12px;
+    font-size:12.5px;
+    color:var(--ink);
+  }
+  .more-info-body ul{
+    margin:10px 0 0;
+    padding-left:18px;
+  }
   .more-info-body li{margin-bottom:6px;}
-  .more-info-heading{text-align:center;color:var(--ink-mid);font-size:13px;font-weight:700;letter-spacing:.04em;margin:26px 0 12px;}
+  .more-info-heading{
+    text-align:center;
+    color:var(--ink-mid);
+    font-size:13px;
+    font-weight:700;
+    letter-spacing:.04em;
+    margin:26px 0 12px;
+  }
+
   .screen{display:none;}
   .screen.active{display:block;}
-  footer.foot{text-align:center;margin-top:20px;color:var(--ink-faint);font-size:11.5px;}
+
+  footer.foot{
+    text-align:center;
+    margin-top:20px;
+    color:var(--ink-faint);
+    font-size:11.5px;
+  }
 </style>
 </head>
 <body>
 <div class="stage">
+
   <header class="masthead">
     <h1>相続放棄 必要書類チェック</h1>
-    <p>1ての質問に答えるだけで、ご提出いただく書類が分かります</p>
+    <p>1つの質問に答えるだけで、ご提出いただく書類が分かります</p>
   </header>
+
   <div class="progress" id="progress">
     <div class="dot" data-step="0"></div>
     <div class="dot" data-step="1"></div>
@@ -135,37 +496,58 @@
     <div class="card">
       <div class="qnum">はじめに</div>
       <p class="question">今回の相続放棄で必要な書類は、お立場によって少しずつ異なります。</p>
+
       <p class="goal-heading">今回、大きく2つのお願いがあります</p>
       <div class="goal-points">
         <div class="goal-point">
           <div class="goal-num">1</div>
           <div>
             <p class="goal-title">故人（父・和男）の相続権が皆様に移ったので、放棄いただくこと</p>
-            <p class="goal-desc">私たち（長男・長女）が相続放棄したことで、民法上の順位により、皆秘が相続人になられみ���た。相続を望まれない場合は「相続放棄」の手続きをお願いいたしみ���。</p>
+            <p class="goal-desc">私たち（長男・長女）が相続放棄したことで、民法上の順位により、皆様が相続人になられました。相続を望まれない場合は「相続放棄」の手続きをお願いいたします。</p>
           </div>
         </div>
         <div class="goal-point">
           <div class="goal-num">2</div>
           <div>
             <p class="goal-title">千代子様が、故人（父・和男）の通帳のお金を下ろせるようにすること</p>
-            <p class="goal-desc">皆様が相続放棄をされることで、最終的に千代子様が相続人となり、故人の通帳に残るお金を引き出せるようになりみ���。</p>
+            <p class="goal-desc">皆様が相続放棄をされることで、最終的に千代子様が相続人となよ、故人の通帳に残るお金を引き出せるようになります。</p>
           </div>
         </div>
       </div>
-      <p class="flow-heading">今回の手続き全体の流れ</p>
+
+      <p class="flow-heading">今回の手続き全$��の流れ</p>
       <div class="flow-wrap">
         <div class="flow-line"></div>
-        <div class="flow-step"><div class="flow-num">1</div><div class="flow-card">私たち（長男・長女）の相続放棄が受理される</div></div>
-        <div class="flow-step"><div class="flow-num">2</div><div class="flow-card">皆様にご連絡（こちらのご連絡）</div></div>
-        <div class="flow-step"><div class="flow-num">3</div><div class="flow-card">皆様が家庭裁判所へ相続放棄の書類を提出</div></div>
-        <div class="flow-step"><div class="flow-num">4</div><div class="flow-card">皆様の相続放棄が受理される（審査期間の目安：2ヶ月ほど）</div></div>
-        <div class="flow-step"><div class="flow-num">5</div><div class="flow-card">皆様の「相続放棄申述受理証明書」と現在の戸籍謄本をご準備</div></div>
-        <div class="flow-step"><div class="flow-num">6</div><div class="flow-card">千代子様担当の司法書士 河合様（山田・中山合同事務所）へ必要書類一式をご提出</div></div>
+        <div class="flow-step">
+          <div class="flow-num">1</div>
+          <div class="flow-card">私たち（長男・長女）の相続放棄が受理される</div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-num">2</div>
+          <div class="flow-card">皆様にご連絡（こちらのご連絡）</div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-num">3</div>
+          <div class="flow-card">皆様が家庭裁判所へ相続放棄の書類を提出</div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-num">4</div>
+          <div class="flow-card">皆様の相続放棄が受理される（審査期間の目安：2ヶ月ほど）</div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-num">5</div>
+          <div class="flow-card">皆様の「相続放棄申述受理証明書」と現在の戸籍謄本をご準備</div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-num">6</div>
+          <div class="flow-card">千代子様担当の司法書士 河合様（山田・中山合同事務所）へ必要書類一式をご提出</div>
+        </div>
       </div>
+
       <ul class="intro-list">
         <li><span class="num">01</span><span>質問は1問だけです</span></li>
         <li><span class="num">02</span><span>「はい」「いいえ」でお答えください</span></li>
-        <li><span class="num">03</span><span>すぐに、ご自身専用の書類リスドが表示されます</span></li>
+        <li><span class="num">03</span><span>すあに、ご自身専用の書類リストが表示されます</span></li>
       </ul>
       <button class="start-btn" onclick="goStep(1)">はじめる</button>
     </div>
@@ -176,7 +558,7 @@
     <div class="card">
       <div class="qnum">質問</div>
       <p class="question">あなたは、亡くなったお父様のご兄弟・姉妹ご本人ですか？</p>
-      <p class="subtext">お父様のご兄弟・姉妹のお子様（甥・姪）にあたる方は「いいえ」をお選びください</p>
+      <p class="subtext">お父様のご兄弟・姉妹のお子様（甥・姪）にあたる方は「いいえ」をお選びください。</p>
       <div class="choices">
         <button class="choice-btn" onclick="answer('honnin', true)">
           <span>はい（ご本人です）</span><span class="mark">○</span>
@@ -193,64 +575,35 @@
     <div class="card">
       <div class="result-head">
         <div class="stamp-wrap"><div class="stamp">確認済</div></div>
-        <h2>あなたに必要な書類</h2>
+        <h2>あな�に必要な書類</h2>
         <p>○＝ご提出が必要　　―＝今回は不要</p>
       </div>
+
       <div class="matrix" id="matrix"></div>
+
       <div class="info-box">
         <p style="margin:0;"><strong>提出はコピーでOKです：</strong>裁判所へはコピーの提出で構いません。原本は、後ほど千代子様への最終提出（現在の戸籍謄本など）で使いますので、失くさないようご注意ください。</p>
       </div>
+
       <div class="info-box">
         <h3>提出先</h3>
         <p>名古屋家庭裁判所 岡崎支部　家事書記官室</p>
         <p>〒444-8550　愛知県岡崎市明大寺町奈良井3</p>
       </div>
+
       <div class="info-box highlight">
-        <h3>千代子様への最終提出につて</h3>
-        <p>相続放棄が受理された後、皆様お一人お一人に、最後にもう一つだけえ願いがあります。</p>
-        <p><strong>皆様にえ準備いただくもの：</strong></p>
-        <p>・ご自身の「相続放棄申述受理証明書」<br>・ご自身の現在の戸籍謄本</p>
+        <h3>千代子様への最終提出について</h3>
+        <p>相続放棄が受理された後、皆様お一人お一人に、最後にもう一つだけお願いがあります。</p>
+        <p><strong>皆様にご準備いただくもは：</strong></p>
+        <p>・ご自身の「相続放棄申述受理証明書」<br>
+        ・ご自身の現在の戸籍謄本</p>
         <p><strong>提出先：</strong></p>
         <p>司法書士法人 山田・中山合同事務所　河合様<br>
-        〒460-0017　名古屋市中区松原三丁目12番5号　丸美タウンマンション松原308号<br>
-        TEL　052-332-1567<br>
-        FAX　052-332-5909<br>
-        MOBILE　090-7612-8343<br>
-        E-MAIL　jtl-yamada@ia7.itkeeper.ne.jp</p>
-        <div class="callout">河合様は、千代子様がえ依頼されている司法書士です。皆様からお預かりした書類は、河合様が取りまとめて手続きを進めます。書類の書き方むご不明な点があれば、河合様へ直接ご連絡いただいても大丈夫です。</div>
-      </div>
+        〒460-0017　名古屋市中区松原三丁目12番5c��� 9..9��੸�����������������o�c���9c������S8� 
+L�L�̋LMM�������V8� 
+L�L�̋MNLO����SВSx� LM͌L�N������KSPRS8� �^X[XYPXM˚]�Y\\���K�����]��\��H��[�]�����d"9��8�k�� yc`�.��kd9��8�c8�e9/�zh/8�ex�8�i��b���c�9��y��9h���i��fx� �桹��8�b��x�b�h$8�b�ࢸ�e��g���:hg��k�� y���d"9��8�c9c�ࢸ�o��i��b�����cxऺ`,��x�o��fx� ���:hg��k���8�cy��x�8�e9.#y�#��j��x�c8�`��8�l8� y���d"9��8�n9��9��x�e:`(��hx�a8�g��h8�a8�i�࠹i)�."9i*��i��fx� ��]����]�����\��H�[ܙKZ[���ZXY[�ȏ��d��d��b��yab8࠸� yi)�b!��j�a�yk�x�i��fx�k��i�� x�`����f��i��e9论*�x�c��h8�ex�a����]Z[��\��H�[ܙKZ[��ȏ���[[X\�O���9���.���k��e��c��o���[[X\�O��]��\��H�[ܙKZ[���X��H���YH��ۚ�[�[��H��������9����j��k�h!�/cx�c8�`�ࢸ� y.�y."��k�h!��j���9����*x�c9���ࢸ�o��fx� ����[��O��+zh!�/c{�&��ay.���k�kd;�"9��g*8� y��9����/���8�k��b�����cy.+x����o�࠸�j��cyc���!�.�9k���"O�O��O��+�h!�/c{�&��ay.���k���9���l"�lg��"9�e��-���{�"x���8�fx�i��j�.��c�O��O��+�h!�/c{�&��ay.���k�aa9o'�i�yi�x� x࠸�e��c��k��gx�k��b�kd9��8���9.�f��k�k�,hO�O���[��]��\��H��[�]��a�z)�{�&��e9kf9dox�k��e9aa9o'�i�yi�x�j8� y.��)l���9���.���"9�)x���i��"x�k�桹��8�k�� yaj9d�x�c9d#9�`��j���9���.���j��j�ࢸ�o��fx� ��#8�o��f�aa9o'�i�yi�x� y�(x�j��)yi��#x�j8�a8�a���zf���8�j�࠸�k��i��k��`�ࢸ�o��f���� ��]����]����]Z[ς��]Z[��\��H�[ܙKZ[��ȏ���[[X\�O��b�����cx�k��'�fd8�j��i8�a8�i���[[X\�O��]��\��H�[ܙKZ[���X��H������9����/���8�k��#:!�b!��c9��9���.���j��j��h��_���x�#x�b��O��ۙό�����"9.�ya�O���ۙϸ�j�(c8�a�o�z)�x�c8�`�ࢸ�o��f{�"9�$y��NLMy�h{�"x� ������d��k��#9��x�h��_���x�#x�k�� y�h�许�j��k��#9ab:h!�/cz !{�":em��-����em�il��"x�k���9����/���8�c9k��n�z(�yb)9�`8�j�c���!��ex�8�_��d��j8स� y桹��8�c8�b���xࢸ�j��j��h��_���x�#x�c:-m�����x�j��j�ࢸ�o��fx� �����c���!��ex�9�(y�+8� x�e9. 9h,xहaix�8�ex�f��i��a8�_��h8�cx�o��fx� ��d8�9aixࢸ�o��fx�c8� x�gx�k�f���k���y�`�ह����b8�i��b8�a8�i8�h8�dx�o��fx�j9nn8�a8�i��fx� ����]��\��H��[�]�������"8�i��k�b)9��x�c:f���e��a9h-9d"8� yk��n�z(�yb)9�`8�j��#9�'�e��/.:em��#x�k��,�����i�स�fx���d��j8࠹c�� �x�i��fx� ��b���x�x�j��e9��:*���c��h8�ex�a�]����]����]Z[ς��]Z[��\��H�[ܙKZ[��ȏ���[[X\�O���:hg�f��x�j��i8�a8�i��k�(�:-����[[X\�O��]��\��H�[ܙKZ[���X��H������ۙϹn��g��.�9.�9b-�n���j��i8�a8�i��&����ۙό��9nm��"8�b��x� y�.9�cz+!9�+8���fi9�cz+!9�+8����.z(�yc���.9�cz+!9�+8�k�� y�+9�cyg,8�c:`h9��x�i�࠸� x�b�/�x�c��k�n �c.��.��dyonyh-8�k���c���i��o��j8�x�i�c�o���i��cx���8�a��j��j�ࢸ�o��e��g��":`�z` x�k�.#yc��� z*���`��i��cx���k��+9.�����acy`m� !x�����9���)������k��o��"x� �����]����]Z[ς��]Z[��\��H�[ܙKZ[��ȏ���[[X\�O��b�����cxऺ`,��x��."��i��k���9�#��O��[[X\�O��]��\��H�[ܙKZ[���X��H���[��O���ۙϺ`n��(��j��b�स�i8�dx�j��a;�&����ۙϹ�ay.���k�h$:a�xहo%x�cya��fx� z`n�d�xहa�b!��fx���j��jx�k�(c9ஸस�fx���j8� y��9���ह�o�*�x�e��_��j8�o��j��ex�8� y�/���8�i��cx�j��c��j���c�� �y�)��c8�`�ࢸ�o��fx� ��O��O���ۙϹ`"�b)x�k��b��b�����cx�c�o�z)�{�&����ۙϸ�b�. 9.���b�. 9.���c9`"�b)x�j��,�/�8�fx��o�z)�x�c8�`�ࢸ�o��fx� �.��(j: !x�c8�o��j8�x�i��b�����cx�fx���d��j8�k��i��cx�o��f���� ��O��O���ۙϺ,���*8�k��e:,�9��x�j��i8�a8�i��&����ۙϺ,���*8�k�c��ba��e:!�.���k��e:,�9��x�j8�j�ࢸ�o��fx�c8� y⭹��x�j��8ࢸ�e9��:*���c��h8�ex�a8� ��O��O���ۙϹ��x�x�k��`9�b�ऻ�&����ۙϹ�nx�j�.��)l���9���.���"9�)x���i��"x�k�桹��8�k�� y�.9�cyc�f��k��b�e���c9h���b8���_��x� y��x�x�k��`9�b�स�b��fx�fx�x�e��o��fx� ��O��O���ۙϹc���+8�k�i,x�c��ex�f��k��&����ۙϹ��9����/���9�,�/�9c���!�*/9�#���8�j9��g*8�k��.9�cz+!9�+8�k�c���+8�k�� yo�8�n��jyc`�.��kd9��8�n8�k�� 9�`���9a��i�/o��a8�o��fx� �c���+:`�9.�8हc���dx�_��x� x�gx�k��o��o�i)�b!��j�/�y�x�e��i��b��a8�i��c��h8�ex�a8� ��O���[���]����]Z[ς��]��\��H��]�H����]ۈۘ�X��H��\�]
 
-      <p class="more-info-heading">ここから先も、大切な内容でするで、あわせてご確認ください</p>
-
-      <details class="more-info">
-        <summary>相続人のしくみ</summary>
-        <div class="more-info-body">
-          <p id="konkyo-note"></p>
-          <p>相続には順位があり、以上の順に相続権が移りみ���。</p>
-          <ul>
-            <li>第1順位：故人の子（現在、相続放棄の手続き中・まもなく受理予定）</li>
-            <li>第2順位：故人の直糷尊属（祖父母）→ すでに他界</li>
-            <li>第3順位：故人の兄弟姉妹、もしくはそのお子様 → 今回の対象</li>
-          </ul>
-          <div class="callout">重要：え存命のい兄弟姉妹と、代襲相続人（甥・姪）の皆様は、全員が同時に相続人になります。「ませ兄弟姉妹、次に甥姪」という段階的なものではありません。</div>
-        </div>
-      </details>
-      <details class="more-info">
-        <summary>手続きの期限について</summary>
-        <div class="more-info-body">
-          <p>相続放棄は「自分が相続人になっ�と知っ�日」から<strong>3ヶ月以内</strong>に行う必要があります（民法915条）。</p>
-          <p>この「知っ�日」は、正確には「先順位者（長男・長女）の相続放棄が家庭裁判所に受理され�ことを、皆様がお知りになっ�日」が起算日になります。</p>
-          <p>受理され次第、ご中報を入れさせてい�だきます。恐り入りますが、その際の���時を控えてえいでさい。</p>
-          <div class="callout">3ヶ月では判断が難しい場合、家庭裁判所に「期間伸長」の申立てをすることも可能です。お早めにご相談ください</div>
-        </div>
-      </details>
-      <details class="more-info">
-        <summary>書類集めにつうの補足</summary>
-        <div class="more-info-body">
-          <p><strong>広域交付制度につう��V</strong>2024年3月から�"戸籍謄本・除籍謄本・改製原戸籍謄本は、本籍地が遠方でも、お近くの市区町村役場の窓口でまとめて取得できるようになりましね��(��;^�8�K��X��8���k.8~8�8(�8�8�i��K��8;��X�Xn�^8;�y�N{;��j�ix�8��Ȟ8#�����F�c���FWF��3��FWF��26�73�&��&R֖�f�#��7V��'��h��{i�8�8).�.8(8(�K��8~8�k:�hH�x+���7V��'���F�b6�73�&��&R֖�f��&�G�#��V���Ɠ��7G&��s��yJ>8�h��8).8N88�8N�ɣ��7G&��s�iX^K��8�	�y8).[�^8�X{�8�8��Y88).XznX�n8�8(�8�8�8��x+�8).8�8(�8�8y��{i�8).h�����8~8�8�8�8�8^8(�8iK�j8N8~8�8�8�8�8(�X���;�h
-~8�8.8(�8�8�8#��Ɠ��Ɠ��7G&��s�X�X�^8�8�h��{i�8�8n[�^�h�ɣ��7G&��s�8�K�K��8�K�K��8�X�X�^8�yK>��8�8(�[�^�h8�8.8(�8�8�8.K�>�Z:8��^8�8�8�8(8nh��{i�8�8�8(�8>8�8�8~8�8�8�8)>8#��Ɠ��Ɠ��7G&��s�+�yJ�8�8N�*h�^8�8N8n;�c��7G&��s��^k9^8�X��i��X��8NK�ޚ�8�X��K�>8�8�8(�8�8�8�8yK.k9^8�8(�8(�8Ny����~8�88^8N8#��Ɠ��Ɠ��7G&��s��x�x�k��`9�b�ऻ�&����ۙϹ�nx�j�.��)l���9���.���"9�)x���i��"x�k�桹��8�k�� y�.9�cyc�f��k��b�e���c9h���b8���g��x� y��x�x�k��`9�b�स�b��fx�fx�x�e��ox�fx� ��O��O���ۙϹc���+8�k�i,x�c��ex�f��j��&����ۙϹ��9����/���9�,�/�9c���!�*/9�#���8�j9��g*8�k��.9�cz+!9�+8�k�� yo�8�n��jyc`�.��kd9��8�n8�k�� 9�`���9a��i�/o��a8�ox�fx� �c���+:`�9.�8हc���dx�g��x� x�gx�k��ox�oyi)�b!��j�/�y�x�e��i��b��a8�i��c��h8�ex�a�O���[���]����]Z[ς��]��\��H��]�H����]ۈۘ�X��H��\�]
-
-H���k��f8� x�b��x�8ࢹ��8�fO؝]ۏ���]����]����]�������\��\��H��������9����/���8�������xਸ���स࠸�j8�j�/g9�$;�#�9`"�b)x�k�b)9��x�c9o�z)�x�j�h-9d"8�k�c�9��y��9h������#��!�h���n8�e9��:*���c��h8�ex�`�ٛ��\����]�����ܚ\��]�]HH�ۛ�[���[N]�\H��[��[ۈ���\
+H���k��f8�x�b��x�8ࢹ��8�fO؝]ۏ���]����]����]�������\��\��H��������9����/���8�������xਸ���स࠸�j8�j�/g9�$;�#�9`"�b)x�k�b)9��x�c9o�z)�x�j�h-9d"8�k�c�9��y��9h������#��!�h���n8�e9��:*���c��h8�ex�aٛ��\����]�����ܚ\��]�]HH�ۛ�[���[N]�\H��[��[ۈ���\
 �^��[Y[��]Y\�T�[X�ܐ[
 	˜�ܙY[��K��ܑXX�
 �O�˘�\��\���[[ݙJ	�X�]�I�JN��[Y[���][[Y[��RY
@@ -264,9 +617,9 @@ NB���[��[ۈ\]T��ܙ\��
 JHO���\��\���[[ݙJ	�X�]�I�	�ۙI�NY�H�\
 H��\��\��Y
 	�ۙI�NY�HOOH�\HH	���\HJH��\��\��Y
-	�X�]�I�NJNY��\OOH�^��˙�ܑXX�
+	�X�]�I�NJNY��\OOH�^�˙�ܑXX�
 O����\��\���[[ݙJ	�X�]�I�N���\��\��Y
-	�ۙI�N�JN�B�B���[��[ۈ[���\��^K�[YJ^�]V��^WHH�[YN�[�\��\�[
+	�ۙI�N�JNB�B���[��[ۈ[���\��^K�[YJ^�]V��^WHH�[YN�[�\��\�[
 
 N���\
 �NB���[��[ۈ�\�]
@@ -276,14 +629,14 @@ N���\
 N��[Y[��]Y\�T�[X�ܐ[
 	˜��ܙ\����	�K��ܑXX�
 O���\��\���[[ݙJ	�X�]�I�	�ۙI�JNB���[��[ۈ�\�R][\�
-^�ۜ�\�Z\�HH�]K�ۛ�[�OOH�[�N�]\����YY��YK]N����9����/���9�,�/�9��	���N��(�yb)9�`8�#9��9����k��/���8�k��,�/�
-9�$9.��x�#x�b��x��8੸�����x��8��x�e��i�/g9�$8���H�Y�H�΋����˘��\�˙�˚���ZX�[���[��Z�K��[��Z�W��^�\�[�[���[��Z�W�W�L��[�^�[�\��]H�؛[�Ȉ�[H����[�\����d��hx�x�k�����8��O��K���YY��YK]N���b:!�.���k��.9�cz+!9�+	���N���b:!�.���k��+9�cyg,8�k�onyh-8� x�o��g��k�n��g��.�9.�9b-�n���i�c�o���K���YY�\�Z\�K]N��.�x�c��j��h��g�)��o�x�ex���k��n�.�z*&:/"y�.9�cx���fi9�cz+!9�+	���N��.��)l���9���.���"9�)x���i��"x�k���x�k��o�o�z)�{�#��e9aa9o'��c8�a8����x�k�� x�jx�hx�x�b�y.���c9c�o���fx�8�l9i)�."9i*��i��fI�K���YY��[�K]N���ay.��9�-�x�k�a��'��b��y�n�.�x�o��i��k��.9�cy. 9o#����N���ay.���k�kd
-:em��-����em�il�x�c9c�o���e�� y.��)h��o� !x�n9��9a��e��o��fx� �桹��8�k��e9���`�x�k�.#z)�x�i��fI�K���YY��YK]N��c�aiycl9�&H9a��b!����N��`�y/��l`8���������������i�,�9aiI�K���YY��YK]N��`(��hy�*8�k�`�y/��b!��b����N��LL9a��b!��b�
+^�ۜ�\�Z\�HH�]K�ۛ�[�OOH�[�N���9.��)l���9���.���"9�)x���i��"B��]\����YY��YK]N����9����/���9�,�/�9��	���N��(�yb)9�`8�#9��9����k��/���8�k����/�
+9�$9.��x�#x�b��x��8੸�����x��8��x�e��i�/g9�$8���H�Y�H�΋����˘��\�˙�˚���ZX�[���[��Z�K��[��Z�W��^�\�[�[���[��Z�W�W�L��[�^�[�\��]H�؛[�Ȉ�[H����[�\����d��hx�x�k�����8��O��K���YY��YK]N���e:!�.���k��.9�cz+!9�+	���N���e:!�.���k��+9�cyg,8�k�onyh-8� x�o��g��k�n��g��.�9.�9b-�n���i�c�o���K���YY�\�Z\�K]N��.�x�c��j��h��g�)��o�x�ex���k��n�.�z*&:/"y�.9�cx���fi9�cz+!9�+	���N��.��)l���9���.���"9�)x���i��"x�k���x�k��o�o�z)�{�#��e9aa9o'��c8�a8����x�k�� x�jx�hx�x�b�y.���c9c�o���fx�8�l9i)�."9i*��i��fI�K���YY��[�K]N���ay.��9�-�x�k�a��'��b��y�n�.�x�o��i��k��.9�cy. 9o#����N���ay.���k�kd
+:em��-����em�il�x�c9c�o���e�� y.��(j: !x�n9��9a��e��o��fx� �桹��8�k��e9���`�x�k�.#z)�x�i��fI�K���YY��YK]N��c�aiycl9�&H9a��b!����N��`�y/��l`8���������������i�,�9aiI�K���YY��YK]N��`(��hy�*8�k�`�y/��b!��b����N��LL9a��b!��b�
 y����K�NB���[��[ۈ�[�\��\�[
 
 ^�ۜ�\�Z\�HH�]K�ۛ�[�OOH�[�N�ۜ���HH��[Y[���][[Y[��RY
-	��ۚ�[�[��I�NY���J^��K�^�۝[�H\�Z\�B��	��`��j��g��k�� y.�x�c��j��h��g��b��-���8�k��b9aa9o'����i�yi�{�"8�fx�i��j�.��c8�ex�8�g���{�"x�j�.�����h��i���9���.���j8�j����#9.��)l���9���.���#x�j��`��g�ࢸ�o��fx� ��	��`��j��g��k�� y.�x�c��j��h��g��b��-���8�k��e9aa9o'����i�yi�x�e9�+9.���j8�e��i�� y.�f���9���.���j��j��x�8�o��e��g�� ��B��ۜ�][\�H�\�R][\�
-N�ۜ�[H][\˛X\
+	��ۚ�[�[��I�NY���J^��K�^�۝[�H\�Z\�B��	��`��j��g��k�� y.�x�c��j��h��g��b��-���8�k��e9aa9o'����i�yi�{�"8�fx�i��j�.��c8�ex�8�g���{�"x�j�.�����h��i���9���.���j8�j����#9.��)l���9���.���#x�j��`��g�ࢸ�o��fx� ��	��`��j��g��k�� y.�x�c��j��h��g��b��-���8�k��e9aa9o'����i�yi�x�e9�+9.���j8�e��i�� y.�f���9���.���j��j��x�8�o��e��g�� ��B���ۜ�][\�H�\�R][\�
+N��ۜ�[H][\˛X\
 ]O��]��\��H����	�]��YY�	ۙYY	��	���\	�H���]��\��H��Yȏ��]��YY�	������	��%I�O�]���]��\��H�^����\��H�]H���]�]_O����\��H���H���]���_O����]����]���
-K���[�	��N��[Y[���][[Y[��RY
+K���[�	��N���[Y[���][[Y[��RY
 	�X]�^	�K�[��\�SH[B���ܚ\��؛�O���[�
