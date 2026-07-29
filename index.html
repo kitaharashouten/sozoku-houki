@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+<title>ç¸ç¶æ¾æ£ å¿è¦æ¸é¡ãã§ãã¯</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@500;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#f5f4f1;
+    --card:#ffffff;
+    --ink:#1c1b19;
+    --ink-mid:#67655f;
+    --ink-faint:#9a978e;
+    --line:#e1ded4;
+    --accent:#2c2b27;
+    --accent-soft:#eceae3;
+    --stamp:#2c2b27;
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--bg);
+    background-image:
+      radial-gradient(circle at 15% 10%, rgba(0,0,0,0.03), transparent 40%),
+      radial-gradient(circle at 90% 85%, rgba(0,0,0,0.035), transparent 45%);
+    color:var(--ink);
+    font-family:'Zen Kaku Gothic New', sans-serif;
+    min-height:100vh;
+    display:flex;
+    align-items:flex-start;
+    justify-content:center;
+    padding:28px 16px 60px;
+    line-height:1.7;
+  }
+  .stage{width:100%;max-width:460px;}
+  .eyebrow{display:flex;align-items:center;gap:10px;margin-bottom:14px;color:var(--ink-mid);font-size:12.5px;letter-spacing:.14em;}
+  .eyebrow .rule{flex:1;height:1px;background:var(--line);}
+  header.masthead{text-align:center;margin-bottom:22px;}
+  header.masthead h1{font-family:'Shippori Mincho B1', serif;font-weight:800;font-size:26px;margin:0 0 6px;letter-spacing:.03em;}
+  header.masthead p{margin:0;color:var(--ink-mid);font-size:13.5px;}
+  .progress{display:flex;gap:6px;justify-content:center;margin:18px 0 26px;}
+  .progress .dot{width:8px;height:8px;border-radius:50%;background:var(--line);transition:background .25s ease, transform .25s ease;}
+  .progress .dot.active{background:var(--accent);transform:scale(1.25);}
+  .progress .dot.done{background:var(--ink-mid);}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:34px 26px 30px;box-shadow:0 1px 2px rgba(0,0,0,0.02), 0 14px 34px -20px rgba(20,18,14,0.25);animation:rise .38s ease;}
+  @keyframes rise{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+  .qnum{font-family:'Shippori Mincho B1', serif;font-size:13px;color:var(--ink-faint);margin-bottom:10px;letter-spacing:.08em;}
+  .question{font-family:'Shippori Mincho B1', serif;font-size:20px;font-weight:700;line-height:1.65;margin:0 0 8px;}
+  .subtext{color:var(--ink-mid);font-size:13.5px;margin:0 0 26px;}
+  .choices{display:flex;flex-direction:column;gap:12px;}
+  .choice-btn{appearance:none;border:1.5px solid var(--line);background:#fff;color:var(--ink);font-family:'Zen Kaku Gothic New', sans-serif;font-size:16px;font-weight:500;padding:18px 20px;border-radius:12px;text-align:left;display:flex;align-items:center;justify-content:space-between;cursor:pointer;transition:border-color .15s ease, background .15s ease, transform .1s ease;}
+  .choice-btn:active{transform:scale(0.98);}
+  .choice-btn:hover{border-color:var(--ink-mid);}
+  .choice-btn .mark{width:26px;height:26px;border-radius:50%;border:1.5px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:13px;color:var(--ink-faint);flex-shrink:0;margin-left:14px;}
+  .start-btn{width:100%;background:var(--accent);color:#fff;border:none;padding:18px 20px;border-radius:12px;font-family:'Zen Kaku Gothic New', sans-serif;font-size:16px;font-weight:700;cursor:pointer;letter-spacing:.04em;}
+  .start-btn:active{transform:scale(0.98);}
+  .intro-list{margin:0 0 26px;padding:0;list-style:none;color:var(--ink-mid);font-size:14px;}
+  .intro-list li{display:flex;gap:10px;padding:9px 0;border-bottom:1px dashed var(--line);}
+  .intro-list li:last-child{border-bottom:none;}
+  .intro-list .num{font-family:'Shippori Mincho B1', serif;color:var(--ink-faint);font-size:13px;}
+  .flow-heading{font-family:'Zen Kaku Gothic New', sans-serif;font-weight:700;font-size:13.5px;color:var(--ink);margin:0 0 16px;}
+  .goal-heading{font-family:'Zen Kaku Gothic New', sans-serif;font-weight:700;font-size:13.5px;color:var(--ink);margin:0 0 12px;}
+  .goal-points{display:flex;flex-direction:column;gap:12px;margin-bottom:28px;}
+  .goal-point{display:flex;gap:14px;align-items:flex-start;border:1.5px solid var(--line);border-radius:14px;padding:16px 16px;background:#fff;}
+  .goal-num{width:30px;height:30px;border-radius:50%;background:var(--ink);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Zen Kaku Gothic New', sans-serif;font-weight:700;font-size:14px;flex-shrink:0;}
+  .goal-title{font-size:14.5px;font-weight:700;color:var(--ink);margin:0 0 4px;}
+  .goal-desc{font-size:12.5px;color:var(--ink-mid);margin:0;line-height:1.65;}
+  .flow-wrap{position:relative;margin-bottom:26px;}
+  .flow-line{position:absolute;left:15px;top:16px;bottom:16px;width:0;border-left:2px dashed var(--line);z-index:0;}
+  .flow-step{position:relative;z-index:1;display:flex;gap:14px;align-items:flex-start;margin-bottom:14px;}
+  .flow-step:last-child{margin-bottom:0;}
+  .flow-num{width:32px;height:32px;border-radius:50%;background:var(--ink);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Zen Kaku Gothic New', sans-serif;font-weight:700;font-size:13.5px;flex-shrink:0;}
+  .flow-card{background:var(--accent-soft);border-radius:12px;padding:11px 15px;font-size:13px;color:var(--ink);flex:1;margin-top:2px;}
+  .result-head{text-align:center;margin-bottom:22px;}
+  .stamp-wrap{display:flex;justify-content:center;margin-bottom:14px;}
+  .stamp{width:64px;height:64px;border-radius:50%;border:2.5px solid var(--stamp);display:flex;align-items:center;justify-content:center;transform:rotate(-6deg);font-family:'Shippori Mincho B1', serif;font-weight:800;font-size:15px;color:var(--stamp);letter-spacing:.05em;}
+  .result-head h2{font-family:'Shippori Mincho B1', serif;font-size:19px;margin:0 0 6px;}
+  .result-head p{color:var(--ink-mid);font-size:13.5px;margin:0;}
+  .matrix{border-top:1px solid var(--line);margin-bottom:22px;}
+  .row{display:flex;align-items:flex-start;gap:14px;padding:15px 2px;border-bottom:1px solid var(--line);}
+  .row .flag{width:28px;height:28px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:'Shippori Mincho B1', serif;font-size:14px;font-weight:700;margin-top:2px;}
+  .row.need .flag{border:2px solid var(--stamp);color:var(--stamp);}
+  .row.skip .flag{color:var(--ink-faint);border:1.5px dashed var(--line);}
+  .row .text .title{font-size:14.5px;font-weight:700;margin:0 0 2px;}
+  .row.skip .text .title{color:var(--ink-faint);font-weight:500;}
+  .row .text .note{font-size:12.5px;color:var(--ink-mid);margin:0;}
+  .row.skip .text .note{color:var(--ink-faint);}
+  .row .text .note a{color:var(--accent);text-decoration:underline;font-weight:700;}
+  .row.pending .flag{border:1.5px dashed var(--ink-mid);color:var(--ink-mid);}
+  .row.pending .text .title{color:var(--ink-mid);}
+  .row.pending .text .note{color:var(--ink-faint);font-style:italic;}
+  .info-box{background:var(--accent-soft);border-radius:14px;padding:18px 18px;font-size:13px;color:var(--ink-mid);margin-bottom:14px;}
+  .info-box h3{font-family:'Shippori Mincho B1', serif;font-size:14px;color:var(--ink);margin:0 0 8px;}
+  .info-box p{margin:0 0 6px;}
+  .info-box p:last-child{margin-bottom:0;}
+  .info-box.highlight{background:var(--ink);color:#fff;border:1px solid var(--ink);}
+  .info-box.highlight h3{font-family:'Zen Kaku Gothic New', sans-serif;color:#fff;font-size:15px;}
+  .info-box.highlight p{color:#efeeE8;}
+  .info-box.highlight .callout{background:rgba(255,255,255,0.14);color:#fff;}
+  .retry{text-align:center;margin-top:22px;}
+  .retry button{background:none;border:1px solid var(--line);color:var(--ink-mid);padding:10px 18px;border-radius:999px;font-size:13px;cursor:pointer;font-family:'Zen Kaku Gothic New', sans-serif;}
+  .more-info{margin-bottom:14px;}
+  .more-info summary{display:flex;align-items:center;justify-content:space-between;cursor:pointer;list-style:none;padding:16px 18px;border:1px solid var(--line);border-radius:14px;font-size:14px;font-weight:700;font-family:'Zen Kaku Gothic New', sans-serif;color:var(--ink);background:#fff;}
+  .more-info summary::-webkit-details-marker{display:none;}
+  .more-info summary::after{content:'ï¼';color:var(--ink-faint);font-family:'Zen Kaku Gothic New', sans-serif;font-weight:400;font-size:16px;}
+  .more-info[open] summary::after{content:'ï¼';}
+  .more-info[open] summary{border-bottom-left-radius:0;border-bottom-right-radius:0;border-bottom:none;}
+  .more-info + .more-info{margin-top:10px;}
+  .more-info-body{border:1px solid var(--line);border-top:none;border-bottom-left-radius:14px;border-bottom-right-radius:14px;padding:6px 18px 18px;font-size:13px;color:var(--ink-mid);}
+  .more-info-body p{margin:10px 0 0;}
+  .more-info-body .callout{background:var(--accent-soft);border-radius:10px;padding:12px 14px;margin-top:12px;font-size:12.5px;color:var(--ink);}
+  .more-info-body ul{margin:10px 0 0;padding-left:18px;}
+  .more-info-body li{margin-bottom:6px;}
+  .more-info-heading{text-align:center;color:var(--ink-mid);font-size:13px;font-weight:700;letter-spacing:.04em;margin:26px 0 12px;}
+  .screen{display:none;}
+  .screen.active{display:block;}
+  footer.foot{text-align:center;margin-top:20px;color:var(--ink-faint);font-size:11.5px;}
+</style>
+</head>
+<body>
+<div class="stage">
+  <header class="masthead">
+    <h1>ç¸ç¶æ¾æ£ å¿è¦æ¸é¡ãã§ãã¯</h1>
+    <p>1ã¦ã®è³ªåã«ç­ããã ãã§ããæåºããã ãæ¸é¡ãåããã¾ã</p>
+  </header>
+  <div class="progress" id="progress">
+    <div class="dot" data-step="0"></div>
+    <div class="dot" data-step="1"></div>
+  </div>
+
+  <!-- Screen 0: Intro -->
+  <div class="screen active" id="screen-0">
+    <div class="card">
+      <div class="qnum">ã¯ããã«</div>
+      <p class="question">ä»åã®ç¸ç¶æ¾æ£ã§å¿è¦ãªæ¸é¡ã¯ããç«å ´ã«ãã£ã¦å°ããã¤ç°ãªãã¾ãã</p>
+      <p class="goal-heading">ä»åãå¤§ãã2ã¤ã®ãé¡ããããã¾ã</p>
+      <div class="goal-points">
+        <div class="goal-point">
+          <div class="goal-num">1</div>
+          <div>
+            <p class="goal-title">æäººï¼ç¶ã»åç·ï¼ã®ç¸ç¶æ¨©ãçæ§ã«ç§»ã£ãã®ã§ãæ¾æ£ããã ããã¨</p>
+            <p class="goal-desc">ç§ãã¡ï¼é·ç·ã»é·å¥³ï¼ãç¸ç¶æ¾æ£ãããã¨ã§ãæ°æ³ä¸ã®é ä½ã«ãããçç§ãç¸ç¶äººã«ãªããã¾ãããç¸ç¶ãæã¾ããªãå ´åã¯ãç¸ç¶æ¾æ£ãã®ãç¶ãããé¡ããããã¿£ã</p>
+          </div>
+        </div>
+        <div class="goal-point">
+          <div class="goal-num">2</div>
+          <div>
+            <p class="goal-title">åä»£å­æ§ããæäººï¼ç¶ã»åç·ï¼ã®éå¸³ã®ãéãä¸ãããããã«ãããã¨</p>
+            <p class="goal-desc">çæ§ãç¸ç¶æ¾æ£ãããããã¨ã§ãæçµçã«åä»£å­æ§ãç¸ç¶äººã¨ãªããæäººã®éå¸³ã«æ®ããéãå¼ãåºããããã«ãªãã¿£ã</p>
+          </div>
+        </div>
+      </div>
+      <p class="flow-heading">ä»åã®æç¶ãå¨ä½ã®æµã</p>
+      <div class="flow-wrap">
+        <div class="flow-line"></div>
+        <div class="flow-step"><div class="flow-num">1</div><div class="flow-card">ç§ãã¡ï¼é·ç·ã»é·å¥³ï¼ã®ç¸ç¶æ¾æ£ãåçããã</div></div>
+        <div class="flow-step"><div class="flow-num">2</div><div class="flow-card">çæ§ã«ãé£çµ¡ï¼ãã¡ãã®ãé£çµ¡ï¼</div></div>
+        <div class="flow-step"><div class="flow-num">3</div><div class="flow-card">çæ§ãå®¶åº­è£å¤æã¸ç¸ç¶æ¾æ£ã®æ¸é¡ãæåº</div></div>
+        <div class="flow-step"><div class="flow-num">4</div><div class="flow-card">çæ§ã®ç¸ç¶æ¾æ£ãåçãããï¼å¯©æ»æéã®ç®å®ï¼2ã¶æã»ã©ï¼</div></div>
+        <div class="flow-step"><div class="flow-num">5</div><div class="flow-card">çæ§ã®ãç¸ç¶æ¾æ£ç³è¿°åçè¨¼ææ¸ãã¨ç¾å¨ã®æ¸ç±è¬æ¬ããæºå</div></div>
+        <div class="flow-step"><div class="flow-num">6</div><div class="flow-card">åä»£å­æ§æå½ã®å¸æ³æ¸å£« æ²³åæ§ï¼å±±ç°ã»ä¸­å±±ååäºåæï¼ã¸å¿è¦æ¸é¡ä¸å¼ããæåº</div></div>
+      </div>
+      <ul class="intro-list">
+        <li><span class="num">01</span><span>è³ªåã¯1åã ãã§ã</span></li>
+        <li><span class="num">02</span><span>ãã¯ãããããããã§ãç­ããã ãã</span></li>
+        <li><span class="num">03</span><span>ããã«ããèªèº«å°ç¨ã®æ¸é¡ãªã¹ããè¡¨ç¤ºããã¾ã</span></li>
+      </ul>
+      <button class="start-btn" onclick="goStep(1)">ã¯ããã</button>
+    </div>
+  </div>
+
+  <!-- Screen 1: Q1 -->
+  <div class="screen" id="screen-1">
+    <div class="card">
+      <div class="qnum">è³ªå</div>
+      <p class="question">ããªãã¯ãäº¡ããªãããç¶æ§ã®ãåå¼ã»å§å¦¹ãæ¬äººã§ããï¼</p>
+      <p class="subtext">ãç¶æ§ã®ãåå¼ã»å§å¦¹ã®ãå­æ§ï¼ç¥ã»å§ªï¼ã«ãããæ¹ã¯ãããããããé¸ã³ãã ãã</p>
+      <div class="choices">
+        <button class="choice-btn" onclick="answer('honnin', true)">
+          <span>ã¯ãï¼ãæ¬äººã§ãï¼</span><span class="mark">â</span>
+        </button>
+        <button class="choice-btn" onclick="answer('honnin', false)">
+          <span>ãããï¼ç¥ã»å§ªã§ãï¼</span><span class="mark">â</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Screen 3: Result -->
+  <div class="screen" id="screen-3">
+    <div class="card">
+      <div class="result-head">
+        <div class="stamp-wrap"><div class="stamp">ç¢ºèªæ¸</div></div>
+        <h2>ããªãã«å¿è¦ãªæ¸é¡</h2>
+        <p>âï¼ãæåºãå¿è¦ããâï¼ä»åã¯ä¸è¦</p>
+      </div>
+      <div class="matrix" id="matrix"></div>
+      <div class="info-box">
+        <p style="margin:0;"><strong>æåºã¯ã³ãã¼ã§OKã§ãï¼</strong>è£å¤æã¸ã¯ã³ãã¼ã®æåºã§æ§ãã¾ãããåæ¬ã¯ãå¾ã»ã©åä»£å­æ§ã¸ã®æçµæåºï¼ç¾å¨ã®æ¸ç±è¬æ¬ãªã©ï¼ã§ä½¿ãã¾ãã®ã§ãå¤±ãããªããããæ³¨æãã ããã</p>
+      </div>
+      <div class="info-box">
+        <h3>æåºå</h3>
+        <p>åå¤å±å®¶åº­è£å¤æ å²¡å´æ¯é¨ãå®¶äºæ¸è¨å®å®¤</p>
+        <p>ã444-8550ãæç¥çå²¡å´å¸æå¤§å¯ºçºå¥è¯äº3</p>
+      </div>
+      <div class="info-box highlight">
+        <h3>åä»£å­æ§ã¸ã®æçµæåºã«ã¤ã¦</h3>
+        <p>ç¸ç¶æ¾æ£ãåçãããå¾ãçæ§ãä¸äººãä¸äººã«ãæå¾ã«ããä¸ã¤ã ããé¡ããããã¾ãã</p>
+        <p><strong>çæ§ã«ãæºåããã ããã®ï¼</strong></p>
+        <p>ã»ãèªèº«ã®ãç¸ç¶æ¾æ£ç³è¿°åçè¨¼ææ¸ã<br>ã»ãèªèº«ã®ç¾å¨ã®æ¸ç±è¬æ¬</p>
+        <p><strong>æåºåï¼</strong></p>
+        <p>å¸æ³æ¸å£«æ³äºº å±±ç°ã»ä¸­å±±ååäºåæãæ²³åæ§<br>
+        ã460-0017ãåå¤å±å¸ä¸­åºæ¾åä¸ä¸ç®12çª5å·ãä¸¸ç¾ã¿ã¦ã³ãã³ã·ã§ã³æ¾å308å·<br>
+        TELã052-332-1567<br>
+        FAXã052-332-5909<br>
+        MOBILEã090-7612-8343<br>
+        E-MAILãjtl-yamada@ia7.itkeeper.ne.jp</p>
+        <div class="callout">æ²³åæ§ã¯ãåä»£å­æ§ããä¾é ¼ããã¦ããå¸æ³æ¸å£«ã§ããçæ§ãããé ããããæ¸é¡ã¯ãæ²³åæ§ãåãã¾ã¨ãã¦æç¶ããé²ãã¾ããæ¸é¡ã®æ¸ãæ¹ããä¸æãªç¹ãããã°ãæ²³åæ§ã¸ç´æ¥ãé£çµ¡ããã ãã¦ãå¤§ä¸å¤«ã§ãã</div>
+      </div>
+
+      <p class="more-info-heading">ããããåããå¤§åãªåå®¹ã§ããã§ããããã¦ãç¢ºèªãã ãã</p>
+
+      <details class="more-info">
+        <summary>ç¸ç¶äººã®ããã¿</summary>
+        <div class="more-info-body">
+          <p id="konkyo-note"></p>
+          <p>ç¸ç¶ã«ã¯é ä½ããããä»¥ä¸ã®é ã«ç¸ç¶æ¨©ãç§»ãã¿£ã</p>
+          <ul>
+            <li>ç¬¬1é ä½ï¼æäººã®å­ï¼ç¾å¨ãç¸ç¶æ¾æ£ã®æç¶ãä¸­ã»ã¾ããªãåçäºå®ï¼</li>
+            <li>ç¬¬2é ä½ï¼æäººã®ç´ç³·å°å±ï¼ç¥ç¶æ¯ï¼â ãã§ã«ä»ç</li>
+            <li>ç¬¬3é ä½ï¼æäººã®åå¼å§å¦¹ããããã¯ãã®ãå­æ§ â ä»åã®å¯¾è±¡</li>
+          </ul>
+          <div class="callout">éè¦ï¼ãå­å½ã®ãåå¼å§å¦¹ã¨ãä»£è¥²ç¸ç¶äººï¼ç¥ã»å§ªï¼ã®çæ§ã¯ãå¨å¡ãåæã«ç¸ç¶äººã«ãªãã¾ãããã¾ãåå¼å§å¦¹ãæ¬¡ã«ç¥å§ªãã¨ããæ®µéçãªãã®ã§ã¯ããã¾ããã</div>
+        </div>
+      </details>
+      <details class="more-info">
+        <summary>æç¶ãã®æéã«ã¤ãã¦</summary>
+        <div class="more-info-body">
+          <p>ç¸ç¶æ¾æ£ã¯ãèªåãç¸ç¶äººã«ãªã£ãã¨ç¥ã£ãæ¥ããã<strong>3ã¶æä»¥å</strong>ã«è¡ãå¿è¦ãããã¾ãï¼æ°æ³915æ¡ï¼ã</p>
+          <p>ãã®ãç¥ã£ãæ¥ãã¯ãæ­£ç¢ºã«ã¯ãåé ä½èï¼é·ç·ã»é·å¥³ï¼ã®ç¸ç¶æ¾æ£ãå®¶åº­è£å¤æã«åçããããã¨ããçæ§ããç¥ãã«ãªã£ãæ¥ããèµ·ç®æ¥ã«ãªãã¾ãã</p>
+          <p>åçããæ¬¡ç¬¬ããä¸­å ±ãå¥ãããã¦ããã ãã¾ããæãå¥ãã¾ããããã®éã®¦¥æãæ§ãã¦ããã§ããã</p>
+          <div class="callout">3ã¶æã§ã¯å¤æ­ãé£ããå ´åãå®¶åº­è£å¤æã«ãæéä¼¸é·ãã®ç³ç«ã¦ããããã¨ãå¯è½ã§ãããæ©ãã«ãç¸è«ãã ãã</div>
+        </div>
+      </details>
+      <details class="more-info">
+        <summary>æ¸é¡éãã«ã¤ãã®è£è¶³</summary>
+        <div class="more-info-body">
+          <p><strong>åºåäº¤ä»å¶åº¦ã«ã¤ãã¾úV</strong>2024å¹´3æããÎ"æ¸ç±è¬æ¬ã»é¤ç±è¬æ¬ã»æ¹è£½åæ¸ç±è¬æ¬ã¯ãæ¬ç±å°ãé æ¹ã§ãããè¿ãã®å¸åºçºæå½¹å ´ã®çªå£ã§ã¾ã¨ãã¦åå¾ã§ããããã«ãªãã¾ãã­ï¾ò(§;^8þKÞXúþ8¸¾k.8~8Þ8(¾8î8þiÊÎK«®8;¾XÞXn^8;¾y»N{;¾j®ixþ8ûÈ8#Â÷à¢ÂöFcà¢ÂöFWFÇ3à¢ÆFWFÇ26Æ73Ò&Ö÷&RÖæfò#à¢Ç7VÖÖ'îh¾{i®8Þ8)..8(8(¾K®8~8þk:hHþx+Â÷7VÖÖ'à¢ÆFb6Æ73Ò&Ö÷&RÖæfòÖ&öG#à¢ÇVÃà¢ÆÆãÇ7G&öæsî®yJ>8¾h¾8).8N88®8NûÉ£Â÷7G&öæsîiX^K«®8î	y8).[É^8ÞX{®88®Y88).XznXn88(¾8®88îÎx+®8).88(¾88y»{i®8).hþ¨Þ8~8þ88þ8®8^8(Î8iKîj8N8~8Þ8®8þ8®8(¾Xúþ;Þh
+~8Î8.8(®8ú88#ÂöÆà¢ÆÆãÇ7G&öæsîX¾X^8î8®h¾{i®8Þ8n[ø^hûÉ£Â÷7G&öæsî8®KK«®8®KK«®8ÎX¾X^8¾yK>û88(¾[ø^h8Î8.8(®8ú88.Kº>Z:8þ^8Î8Þ88(8nh¾{i®8Þ88(¾8>88þ8~8Þ8Þ8¾8)>8#ÂöÆà¢ÆÆãÇ7G&öæsî+¾yJ8î8N*h¸^8¾8N8n;ï¥cÂ÷7G&öæsîù^k9^8þXéþiXÞ8NKéÞÎ8îXÞKÙ>88®8(®8î88Î8yK.k9^8¾8(8(®8Ny»¸~8þ88^8N8#ÂöÆà¢ÆÆãÇ7G&öæsé¥êxà xàk¹ç`9¢bøà¤»ï&ÜÝÛÏ¹ânxàjù.èú)l¹æî9í¦¹.®»ï"9å)xàîùiê»ï"xàk¹æ¡¹©æ8àkøà y¢.9ìcycãºfá¸àk¹¢búe¤øàc9h¥øàb8à¢øàgøà xà y¥êxà xàk¹ç`9¢bøà¤¸àb¸àfxàfxà xàeøàoxàfxà ÛOOÝÛÏ¹c§ù§+8àkùi,xàcøàexàf¸àjûï&ÜÝÛÏ¹æî9í¦¹¥/¹¨á9å,ú/ì9cåùä!º*/9¦#¹¦î8àj9ãï¹g*8àk¹¢.9ìcz+!9§+8àkøà yo£8ànøàjyc`ù.èùkd9©æ8àn8àk¹§ 9í`¹£ä9aî¸àiù/oøàa8àoxàfxà ¹c§ù§+:`¡9.æ8à¤¹cåøàdxàgøà¢xà xàgxàk¸àoxàoyi)ùb!øàjù/çyë¨xàeøài¸àb¸àa8ài¸àcøàh8àexàaÛOÝ[Ù]Ù]Z[Ï]Û\ÜÏH]H]ÛÛÛXÚÏH\Ù]
+
+H¸àkøàf8à xàbøà¢xà¡8à¢¹æí8àfOØ]ÛÙ]Ù]Ù]ÛÝ\Û\ÜÏHÛÝ¹æî9í¦¹¥/¹¨á8àç¸àâøàéxà¨¸àêøà¤¸à ¸àj8àjù/g9¢$;ï#È9`"ùb)xàk¹b)9¥«xàc9oáz) xàj¹h-9d"8àkùcî9¬åy¦î9hêøàîùê#¹ä!¹hêøàn8àe9æî:*áøàcøàh8àexà`ÙÛÝ\Ù]ØÜ\]Ý]HHÈÛ[[NÂ]Ý\HÂ[Ý[ÛÛÔÝ\
+^ÂØÝ[Y[]Y\TÙ[XÝÜ[
+	ËØÜY[ÊKÜXXÚ
+ÈOËÛ\ÜÓ\Ý[[ÝJ	ØXÝ]IÊJNÂØÝ[Y[Ù][[Y[RY
+	ÜØÜY[IÈ
+ÈKÛ\ÜÓ\ÝY
+	ØXÝ]IÊNÂÝ\HÂ\]TÙÜ\ÜÊ
+NÂB[Ý[Û\]TÙÜ\ÜÊ
+^ÂÛÛÝÝÈHØÝ[Y[]Y\TÙ[XÝÜ[
+	ËÙÜ\ÜÈÝ	ÊNÂÝËÜXXÚ
+
+JHOÂÛ\ÜÓ\Ý[[ÝJ	ØXÝ]IË	ÙÛIÊNÂYHÝ\
+HÛ\ÜÓ\ÝY
+	ÙÛIÊNÂYHOOHÝ\HH	Ý\HJHÛ\ÜÓ\ÝY
+	ØXÝ]IÊNÂJNÂYÝ\OOHÊ^ÈÝËÜXXÚ
+OÈÛ\ÜÓ\Ý[[ÝJ	ØXÝ]IÊNÈÛ\ÜÓ\ÝY
+	ÙÛIÊNÈJNÈBB[Ý[Û[ÝÙ\Ù^K[YJ^ÂÝ]VÚÙ^WHH[YNÂ[\\Ý[
+
+NÂÛÔÝ\
+ÊNÂB[Ý[Û\Ù]
+
+^ÂÝ]HHÈÛ[[NÂÛÔÝ\
+
+NÂØÝ[Y[]Y\TÙ[XÝÜ[
+	ËÙÜ\ÜÈÝ	ÊKÜXXÚ
+OÛ\ÜÓ\Ý[[ÝJ	ØXÝ]IË	ÙÛIÊJNÂB[Ý[Û\ÙR][\Ê
+^ÂÛÛÝ\ÑZ\ÚHHÝ]KÛ[OOH[ÙNÂ]\ÂÈYYYK]Nùæî9í¦¹¥/¹¨á9å,ú/ì9¦î	ËÝNú(àyb)9¢`8à#9æî9í¦¸àk¹¥/¹¨á8àk¹å,ú/ì
+9¢$9.®xà#xàbøà¢xàà8à©¸àìøàëxàï8àâxàeøài¹/g9¢$8¡¤HYHÎËÝÝÝËÛÝ\ËÛËÜØZX[ÜÞ[ÜÚZÚKÜÞ[ÜÚZÚWÚØ^\Ú[[ÜÞ[ÜÚZÚWÌWÌLËÚ[^[\Ù]HØ[È[HÛÜ[\¸àdøàhxà¢xàk¸àæ¸àï8à®ØOÈKÈYYYK]Nøàb:!êº.ªøàk¹¢.9ìcz+!9§+	ËÝNøàb:!êº.ªøàk¹§+9ìcyg,8àk¹onyh-8à xào¸àgøàkùn ùgçù.©9.æ9b-¹n©¸àiùcå¹o¥ÉÈKÈYY\ÑZ\ÚK]Nù.¨xàcøàj¸àhøàgú)ª¹o¨xàexà¤øàk¹«nù.¨z*&:/"y¢.9ìcxàîúfi9ìcz+!9§+	ËÝNù.èú)l¹æî9í¦¹.®»ï"9å)xàîùiê»ï"xàk¹¥®xàk¸àoùoáz) {ï#øàe9aa9o'øàc8àa8à¢ù¥®xàkøà xàjxàhxà¢xàbÌy.®¸àc9cå¹o¥øàfxà£8àl9i)ù."9i*øàiøàfIÈKÈYY[ÙK]Nù¥ay.®9â-xàk¹aî¹å'øàbøà¢y«nù.¨xào¸àiøàk¹¢.9ìcy. 9o#ÉËÝNù¥ay.®¸àk¹kd
+:emùå-øàîúemùilÊxàc9cå¹o¥øàeøà y.èú)hèàoú !xàn9£ä9aî¸àeøàoèàfxà ¹æ¡¹©æ8àk¸àe9®¥¹`¦xàkù.#z) xàiøàfIÈKÈYYYK]Nùcã¹aiycl9í&H9a¡¹b!ËÝNú`íy/¯ùl`8àîøà¬øàìøàäøàâøàiú,ï9aiIÈKÈYYYK]Nú`(ùíhyå*8àkº`íy/¯ùb!ù¢bÉËÝNÌLL9a¡¹b!ù¢bÈ
+y§¦ÈKNÂB[Ý[Û[\\Ý[
+
+^ÂÛÛÝ\ÑZ\ÚHHÝ]KÛ[OOH[ÙNÂÛÛÝÝHHØÝ[Y[Ù][[Y[RY
+	ÚÛÛÞ[Ë[ÝIÊNÂYÝJ^ÂÝK^ÛÛ[H\ÑZ\ÚBÈ	øà`¸àj¸àgøàkøà y.¨xàcøàj¸àhøàgøàb¹â-¹©æ8àk¸àb9aa9o'øàîùiâyi®{ï"8àfxàiøàjù.å¹åc8àexà£8àgù¥®{ï"xàjù.èøà£øàhøài¹æî9í¦¹.®¸àj8àj¸à¢øà#9.èú)l¹æî9í¦¹.®¸à#xàjøà`¸àgøà¢¸ào¸àfxà Â	øà`¸àj¸àgøàkøà y.¨xàcøàj¸àhøàgøàb¹â-¹©æ8àk¸àe9aa9o'øàîùiâyi®xàe9§+9.®¸àj8àeøài¸à y.â¹fç¹æî9í¦¹.®¸àjøàj¸à¢xà£8àoèàeøàgøà ÎÂBÛÛÝ][\ÈH\ÙR][\Ê
+NÂÛÛÝ[H][\ËX\
+]O]Û\ÜÏHÝÈ	Ú]YYÈ	ÛYY	È	ÜÚÚ\	ßH]Û\ÜÏHYÈÚ]YYÈ	ø¥âÉÈ	ø %IßOÙ]]Û\ÜÏH^Û\ÜÏH]HÚ]]_OÜÛ\ÜÏHÝHÚ]Ý_OÜÙ]Ù]
+KÚ[	ÉÊNÂØÝ[Y[Ù][[Y[RY
+	ÛX]^	ÊK[\SH[ÂBÜØÜ\ØÙOÚ[
