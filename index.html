@@ -546,7 +546,7 @@
 
       <div class="info-box" style="margin-bottom:22px;">
         <h3>放棄のご意向を固める前に</h3>
-        <p>お父様の資産（預金など）の内容はご存じですか？内容を確認した上で、相続放棄のご意向を固めていただくことをお勧めします。</p>
+        <p>資産（預金など）は200万ほどございます。負債に関しては不明ですが、万が一の場合があります。</p>
         <p>ご不明な点がある場合は、河合様（司法書士）にご相談ください。</p>
       </div>
 
@@ -601,7 +601,7 @@
         <h3>千代子様への最終提出について</h3>
         <p>相続放棄が受理された後、皆様お一人お一人に、最後にもう一つだけお願いがあります。</p>
         <p><strong>皆様にご準備いただくもの：</strong></p>
-        <p>・ご自身の「相続放棄申述受理証明書」<br>・ご自身の現在の戸籍謄本</p>
+        <p id="saishuu-documents">・ご自身の「相続放棄申述受理証明書」<br>・ご自身の現在の戸籍謄本</p>
         <p><strong>提出先：</strong></p>
         <p>司法書士法人 山田・中山合同事務所　河合様<br>
         〒460-0017　名古屋市中区松原三丁目12番5号　丸美タウンマンション松原308号<br>
@@ -754,6 +754,14 @@ function renderResult(){
   `).join('');
 
   document.getElementById('matrix').innerHTML = html;
+
+  // 甥・姪の場合、千代子様への最終提出に原本を追加
+  const docEl = document.getElementById('saishuu-documents');
+  if(docEl){
+    docEl.innerHTML = isDaishu
+      ? '・ご自身の「相続放棄申述受理証明書」<br>・ご自身の現在の戸籍謄本<br>・亡くなった親御さんの死亡記載戸籍・除籍謄本（<strong style="color:#fff;">原本</strong>が必要です）'
+      : '・ご自身の「相続放棄申述受理証明書」<br>・ご自身の現在の戸籍謄本';
+  }
 }
 </script>
 </body>
