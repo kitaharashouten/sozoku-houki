@@ -621,13 +621,7 @@
             <p class="goal-desc">費用は最小限（収入印紙800円＋郵便切手）ですが、申述書の作成や書類の準備にお手間がかかります。上記の必要書類リストをご参照ください。申述書の書き方は<a href="https://drive.google.com/file/d/15N40qnMBYIp2_uanwyIp4NL8j1LYSmUg/view?usp=drive_link" target="_blank" rel="noopener">こちら（Googleドライブ）</a>。</p>
           </div>
         </div>
-        <div class="goal-point">
-          <div class="goal-num">B</div>
-          <div>
-            <p class="goal-title">河合様（司法書士）にお任せされる場合</p>
-            <p class="goal-desc">お手間は最小限ですが、費用がかかります。詳細・費用感については、河合様に直接ご相談ください。<br>TEL 052-332-1567 / MOBILE 090-7612-8343</p>
-          </div>
-        </div>
+
       </div>
 
       <p class="more-info-heading">ここから先も、大切な内容ですので、あわせてご確認ください</p>
@@ -759,8 +753,8 @@ function renderResult(){
   const docEl = document.getElementById('saishuu-documents');
   if(docEl){
     docEl.innerHTML = isDaishu
-      ? '・ご自身の「相続放棄申述受理証明書」<br>・ご自身の現在の戸籍謄本<br>・亡くなった親御さんの死亡記載戸籍・除籍謄本（<strong style="color:#fff;">原本</strong>が必要です）'
-      : '・ご自身の「相続放棄申述受理証明書」<br>・ご自身の現在の戸籍謄本';
+      ? '・ご自身の「相続放棄申述受理証明書」<br>・ご自身の現在の戸籍謄本<br>・亡くなった親御さんの死亡記載戸籍・除籍謄本<br><br><strong>全て原本が必要です。後で返送いたします。</strong>'
+      : '・ご自身の「相続放棄申述受理証明書」<br>・ご自身の現在の戸籍謄本<br><br><strong>全て原本が必要です。後で返送いたします。</strong>';
   }
 }
 </script>
